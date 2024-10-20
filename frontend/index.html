@@ -10,7 +10,7 @@
 <body>
     <div id="toolbar">
         <div class="dropdown">
-            <button class="btn btn-sm dropdown-toggle color-light" type="button" data-bs-toggle="dropdown">
+            <button class="btn btn-sm color-light" type="button" data-bs-toggle="dropdown">
                 Painter
             </button>
             <ul class="dropdown-menu acrylic">
@@ -22,10 +22,15 @@
             </ul>
         </div>
         <div class="dropdown">
-            <button class="btn btn-sm dropdown-toggle color-light" type="button" data-bs-toggle="dropdown">
+            <button class="btn btn-sm color-light" type="button" data-bs-toggle="dropdown">
                 File
             </button>
             <ul class="dropdown-menu acrylic">
+                <li>
+                    <a class="dropdown-item color-light" href="#">
+                        <i class="bi bi-plus"></i> New
+                    </a>
+                </li>
                 <li id="tool-file-save">
                     <a class="dropdown-item color-light" href="#">
                         <i class="bi bi-save"></i> Save
@@ -46,7 +51,7 @@
             </ul>
         </div>
         <div class="dropdown">
-            <button class="btn btn-sm btn-sm dropdown-toggle color-light" type="button" data-bs-toggle="dropdown">
+            <button class="btn btn-sm color-light" type="button" data-bs-toggle="dropdown">
                 Shape
             </button>
             <ul class="dropdown-menu acrylic">
@@ -68,7 +73,7 @@
             </ul>
         </div>
         <div class="dropdown">
-            <button class="btn btn-sm btn-sm dropdown-toggle color-light" type="button" data-bs-toggle="dropdown">
+            <button class="btn btn-sm color-light" type="button" data-bs-toggle="dropdown">
                 Insert
             </button>
             <ul class="dropdown-menu acrylic">
@@ -79,7 +84,25 @@
                 </li>
             </ul>
         </div>
+        <div class="dropdown">
+            <button class="btn btn-sm color-light" type="button" data-bs-toggle="dropdown">
+                Settings
+            </button>
+            <ul class="dropdown-menu acrylic">
+                <li>
+                    <a id="tool-insert-shape" class="dropdown-item color-light" href="#">
+                        <i class="bi bi-settings"></i> General
+                    </a>
+                </li>
+                <li>
+                    <a id="tool-insert-shape" class="dropdown-item color-light" href="#">
+                        <i class="bi bi-settings"></i> Theme
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
+
     <div id="tool-insert-shape-popup" class="popup hidden">
         <div class="width100">
             <h3>Insert shape</h3>
@@ -121,11 +144,14 @@
             </div>
         </div>
     </div>
+
+    <div id="board">
+
+        <svg id="canvas"></svg>
+    </div>
+
     <div id="bottombar" class="p-2">
         <span id="current-action" class="text-light">no action are executed currently...</span>
-    </div>
-    <div id="board">
-        <svg id="canvas"></svg>
     </div>
     <script src="./src/main.js" type="module"></script>
 </body>
