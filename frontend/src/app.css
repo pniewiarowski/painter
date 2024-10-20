@@ -1,0 +1,79 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+}
+
+#toolbar {
+    padding: 0.1rem;
+    display: flex;
+    background-color: #131313;
+}
+
+#canvas {
+    width: 100vw;
+    height: 100vh;
+}
+
+.action-spacing {
+    margin: 0 10px 10px 0;
+}
+
+.mr-1 {
+    margin-right: 1rem;
+}
+
+.flex {
+    display: flex;
+}
+
+.width50 {
+    width: 50%;
+}
+
+.width100 {
+    width: 100%;
+}
+
+.right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.popup {
+    display: flex;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 6px 2px #13131377;
+    color: #ffffff;
+    border-radius: 0.25rem;
+    background-color: #131313aa;
+    backdrop-filter: blur(4px);
+    width: 400px;
+    padding: 1rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.color-light {
+    color: #fff;
+}
+
+.color-light:hover {
+    color: #fff;
+}
+
+.color-light:focus {
+    color: #fff;
+}

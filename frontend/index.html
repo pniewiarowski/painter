@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painter</title>
+</head>
+
+<body>
+    <div id="toolbar">
+        <div class="dropdown">
+            <button class="btn btn-sm dropdown-toggle color-light" type="button" data-bs-toggle="dropdown">
+                File
+            </button>
+            <ul class="dropdown-menu">
+                <li id="tool-file-save">
+                    <a class="dropdown-item" href="#">
+                        <i class="bi bi-save"></i> Save
+                    </a>
+                </li>
+                <li id="tool-file-save-as">
+                    <a class="dropdown-item" href="#">
+                        <i class="bi bi-save"></i> Save as
+                    </a>
+                </li>
+                <li id="tool-file-load">
+                    <a class="dropdown-item" href="#">
+                        <i class="bi bi-upload"></i> Open
+                        <input class="hidden" type="file" id="tool-load-file-input" accept=".svg"
+                            onchange="loadFromFile(event)">
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-sm btn-sm dropdown-toggle color-light" type="button" data-bs-toggle="dropdown">
+                Shape
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a id="tool-shape-rectangle" class="dropdown-item" href="#">
+                        <i class="bi bi-square"></i> Rectangle
+                    </a>
+                </li>
+                <li>
+                    <a id="tool-shape-circle" class="dropdown-item" href="#">
+                        <i class="bi bi-circle"></i> Circle
+                    </a>
+                </li>
+                <li>
+                    <a id="tool-shape-line" class="dropdown-item" href="#">
+                        <i class="bi bi-slash-lg"></i>Line
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-sm btn-sm dropdown-toggle color-light" type="button" data-bs-toggle="dropdown">
+                Insert
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a id="tool-insert-shape" class="dropdown-item" href="#">
+                        <i class="bi bi-easel"></i>> Shape
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="tool-insert-shape-popup" class="popup hidden draggable">
+        <div class="width100">
+            <h3>Insert shape</h3>
+            <div class="fullwidth flex action-spacing">
+                <select class="form-control">
+                    <option></option>
+                    <option value="rectangle">
+                        Rectangle
+                    </option>
+                    <option value="circle">
+                        Circle
+                    </option>
+                    <option value="line">
+                        Line
+                    </option>
+                </select>
+            </div>
+            <div class="fullwidth flex">
+                <div class="action-spacing width50">
+                    <input class="form-control" type="number" placeholder="X" />
+                </div>
+                <div class="action-spacing width50">
+                    <input class="form-control" type="number" placeholder="Width" />
+                </div>
+            </div>
+            <div class="fullwidth flex">
+                <div class="action-spacing width50">
+                    <input class="form-control" type="number" placeholder="Y" />
+                </div>
+                <div class="action-spacing width50">
+                    <input class="form-control" type="number" placeholder="Height" />
+                </div>
+            </div>
+            <div class="right">
+                <button type="submit" id="tool-insert-shape-cancel"
+                    class="btn btn-danger action-spacing">Cancel</button>
+                <button type="submit" id="tool-insert-shape-insert"
+                    class="btn btn-primary action-spacing">Insert</button>
+            </div>
+        </div>
+    </div>
+    <svg id="canvas"></svg>
+    <script src="./src/main.js" type="module"></script>
+</body>
+
+</html>
