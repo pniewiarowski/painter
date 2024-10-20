@@ -24,7 +24,8 @@ HTMLLoadButton.addEventListener("click", () => {
 
         reader.addEventListener("load", (event) => {
             document.getElementById("canvas").outerHTML = event.target.result;
-            reader.readAsText(file);
         });
+
+        reader.readAsText(file);
     });
 });

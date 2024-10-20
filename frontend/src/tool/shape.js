@@ -2,6 +2,7 @@ const HTMLToolShapeRectangle = document.getElementById("tool-shape-rectangle");
 const HTMLToolShapeCircle = document.getElementById("tool-shape-circle");
 const HTMLToolShapeLine = document.getElementById("tool-shape-line");
 const HTMLCanvas = document.getElementById("canvas");
+let HTMLCurrentAction = document.getElementById("current-action");
 
 const TOOLS = {
     RECTANGLE: "rect",
@@ -47,6 +48,7 @@ HTMLCanvas.addEventListener("mousedown", function (event) {
             CURRENT_ELEMENT.setAttribute("x2", START_X);
             CURRENT_ELEMENT.setAttribute("y2", START_Y);
             CURRENT_ELEMENT.setAttribute("stroke", "black");
+            HTMLCurrentAction.innerHTML = `drawed ${SELECTED_TOOL} in canvas`
             break;
         case TOOLS.CIRCLE:
             CURRENT_ELEMENT = document.createElementNS("http://www.w3.org/2000/svg", "circle");
@@ -55,6 +57,7 @@ HTMLCanvas.addEventListener("mousedown", function (event) {
             CURRENT_ELEMENT.setAttribute("r", 0);
             CURRENT_ELEMENT.setAttribute("stroke", "black");
             CURRENT_ELEMENT.setAttribute("fill", "transparent");
+            HTMLCurrentAction.innerHTML = `drawed ${SELECTED_TOOL} in canvas`
             break;
         case TOOLS.RECTANGLE:
             CURRENT_ELEMENT = document.createElementNS("http://www.w3.org/2000/svg", "rect");
@@ -64,6 +67,7 @@ HTMLCanvas.addEventListener("mousedown", function (event) {
             CURRENT_ELEMENT.setAttribute("height", 0);
             CURRENT_ELEMENT.setAttribute("stroke", "black");
             CURRENT_ELEMENT.setAttribute("fill", "transparent");
+            HTMLCurrentAction.innerHTML = `drawed ${SELECTED_TOOL} in canvas`
             break;
     }
 
@@ -115,16 +119,19 @@ HTMLCanvas.addEventListener("mousemove", (event) => {
         case TOOLS.RECTANGLE:
             SELECTED_ELEMENT.setAttribute("x", +SELECTED_ELEMENT.getAttribute("x") + dx);
             SELECTED_ELEMENT.setAttribute("y", +SELECTED_ELEMENT.getAttribute("y") + dy);
+            HTMLCurrentAction.innerHTML = `moved rect on canvas`;
             break;
         case TOOLS.CIRCLE:
             SELECTED_ELEMENT.setAttribute("cx", +SELECTED_ELEMENT.getAttribute("cx") + dx);
             SELECTED_ELEMENT.setAttribute("cy", +SELECTED_ELEMENT.getAttribute("cy") + dy);
+            HTMLCurrentAction.innerHTML = `moved circle on canvas`;
             break;
         case TOOLS.LINE:
             SELECTED_ELEMENT.setAttribute("x1", +SELECTED_ELEMENT.getAttribute("x1") + dx);
             SELECTED_ELEMENT.setAttribute("y1", +SELECTED_ELEMENT.getAttribute("y1") + dy);
             SELECTED_ELEMENT.setAttribute("x2", +SELECTED_ELEMENT.getAttribute("x2") + dx);
             SELECTED_ELEMENT.setAttribute("y2", +SELECTED_ELEMENT.getAttribute("y2") + dy);
+            HTMLCurrentAction.innerHTML = `moved line on canvas`;
             break;
     }
 

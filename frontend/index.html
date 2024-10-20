@@ -11,21 +11,33 @@
     <div id="toolbar">
         <div class="dropdown">
             <button class="btn btn-sm dropdown-toggle color-light" type="button" data-bs-toggle="dropdown">
+                Painter
+            </button>
+            <ul class="dropdown-menu acrylic">
+                <li id="tool-file-save color-light">
+                    <a class="dropdown-item color-light" href="#">
+                        <i class="bi bi-box-arrow-left"></i> Exit
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-sm dropdown-toggle color-light" type="button" data-bs-toggle="dropdown">
                 File
             </button>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu acrylic">
                 <li id="tool-file-save">
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item color-light" href="#">
                         <i class="bi bi-save"></i> Save
                     </a>
                 </li>
                 <li id="tool-file-save-as">
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item color-light" href="#">
                         <i class="bi bi-save"></i> Save as
                     </a>
                 </li>
                 <li id="tool-file-load">
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item color-light" href="#">
                         <i class="bi bi-upload"></i> Open
                         <input class="hidden" type="file" id="tool-load-file-input" accept=".svg"
                             onchange="loadFromFile(event)">
@@ -37,19 +49,19 @@
             <button class="btn btn-sm btn-sm dropdown-toggle color-light" type="button" data-bs-toggle="dropdown">
                 Shape
             </button>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu acrylic">
                 <li>
-                    <a id="tool-shape-rectangle" class="dropdown-item" href="#">
+                    <a id="tool-shape-rectangle" class="dropdown-item color-light" href="#">
                         <i class="bi bi-square"></i> Rectangle
                     </a>
                 </li>
                 <li>
-                    <a id="tool-shape-circle" class="dropdown-item" href="#">
+                    <a id="tool-shape-circle" class="dropdown-item color-light" href="#">
                         <i class="bi bi-circle"></i> Circle
                     </a>
                 </li>
                 <li>
-                    <a id="tool-shape-line" class="dropdown-item" href="#">
+                    <a id="tool-shape-line" class="dropdown-item color-light" href="#">
                         <i class="bi bi-slash-lg"></i>Line
                     </a>
                 </li>
@@ -59,21 +71,21 @@
             <button class="btn btn-sm btn-sm dropdown-toggle color-light" type="button" data-bs-toggle="dropdown">
                 Insert
             </button>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu acrylic">
                 <li>
-                    <a id="tool-insert-shape" class="dropdown-item" href="#">
-                        <i class="bi bi-easel"></i>> Shape
+                    <a id="tool-insert-shape" class="dropdown-item color-light" href="#">
+                        <i class="bi bi-easel"></i> Shape
                     </a>
                 </li>
             </ul>
         </div>
     </div>
-    <div id="tool-insert-shape-popup" class="popup hidden draggable">
+    <div id="tool-insert-shape-popup" class="popup hidden">
         <div class="width100">
             <h3>Insert shape</h3>
             <div class="fullwidth flex action-spacing">
                 <select class="form-control">
-                    <option></option>
+                    <option>-- Choose shape --</option>
                     <option value="rectangle">
                         Rectangle
                     </option>
@@ -109,7 +121,12 @@
             </div>
         </div>
     </div>
-    <svg id="canvas"></svg>
+    <div id="bottombar" class="p-2">
+        <span id="current-action" class="text-light">no action are executed currently...</span>
+    </div>
+    <div id="board">
+        <svg id="canvas"></svg>
+    </div>
     <script src="./src/main.js" type="module"></script>
 </body>
 
